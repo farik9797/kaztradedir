@@ -1,0 +1,93 @@
+/*
+ * KazTradeDir — дизайн-токены.
+ * Цвета сняты с логотипа (пиксели): #003CA0 глубокий синий, #006DCF синий, #00ABFE голубой акцент.
+ * Шрифты: Manrope (заголовки, интерфейс) + Onest (текст) — оба с кириллицей.
+ */
+:root {
+	/* Бренд */
+	--ktd-blue-950: #071a3d;
+	--ktd-blue-900: #0b2350;
+	--ktd-blue-800: #003ca0;
+	--ktd-blue-700: #0050c0;
+	--ktd-blue-600: #0a5fd6; /* основной: белый текст на нём — контраст 5.3:1 */
+	--ktd-blue-500: #006dcf;
+	--ktd-sky-400: #00abfe; /* акцент: только декоративно, не для текста на белом */
+	--ktd-blue-100: #e3edfc;
+	--ktd-blue-50: #f2f6fd;
+
+	/* Нейтральные */
+	--ktd-white: #ffffff;
+	--ktd-ink: #15213a;
+	--ktd-text: #27324a;
+	--ktd-muted: #5a6880; /* 5.6:1 на белом */
+	--ktd-line: #e1e7f0;
+	--ktd-line-strong: #c9d3e2;
+	--ktd-surface: #f4f7fb;
+
+	/* Состояния */
+	--ktd-success: #12805c;
+	--ktd-success-bg: #e5f5ee;
+	--ktd-warning: #b45d00;
+	--ktd-warning-bg: #fff3e0;
+	--ktd-danger: #c8312b;
+	--ktd-star: #f5a524;
+
+	/* Роли */
+	--ktd-color-bg: var(--ktd-white);
+	--ktd-color-heading: var(--ktd-blue-900);
+	--ktd-color-text: var(--ktd-text);
+	--ktd-color-primary: var(--ktd-blue-600);
+	--ktd-color-primary-hover: var(--ktd-blue-800);
+	--ktd-color-focus: #ffb000;
+
+	/* Типографика */
+	--ktd-font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+	--ktd-font-body: "Onest", "Segoe UI", system-ui, sans-serif;
+	--ktd-fs-xs: 0.75rem;
+	--ktd-fs-sm: 0.875rem;
+	--ktd-fs-md: 1rem;
+	--ktd-fs-lg: 1.125rem;
+	--ktd-fs-xl: 1.375rem;
+	--ktd-fs-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+	--ktd-fs-3xl: clamp(1.875rem, 1.3rem + 2.4vw, 3rem);
+
+	/* Отступы и форма */
+	--ktd-space-1: 4px;
+	--ktd-space-2: 8px;
+	--ktd-space-3: 12px;
+	--ktd-space-4: 16px;
+	--ktd-space-5: 24px;
+	--ktd-space-6: 32px;
+	--ktd-space-7: 48px;
+	--ktd-space-8: 64px;
+	--ktd-radius-sm: 6px;
+	--ktd-radius: 10px;
+	--ktd-radius-lg: 16px;
+	--ktd-shadow-sm: 0 1px 2px rgb(11 35 80 / 6%);
+	--ktd-shadow: 0 6px 20px -8px rgb(11 35 80 / 18%);
+	--ktd-shadow-lg: 0 18px 48px -16px rgb(11 35 80 / 30%);
+
+	/* Сетка */
+	--ktd-container: 1320px;
+	--ktd-gutter: 16px;
+	--ktd-header-h: 72px;
+
+	/* Движение */
+	--ktd-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+	--ktd-dur: 200ms;
+
+	/* Мотив логотипа: наклон граней знака */
+	--ktd-skew: -18deg;
+}
+
+@media (min-width: 768px) {
+	:root {
+		--ktd-gutter: 24px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--ktd-dur: 0ms;
+	}
+}

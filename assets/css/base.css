@@ -1,0 +1,161 @@
+/* Базовые стили: сброс, типографика, контейнер, доступность. */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-padding-top: calc(var(--ktd-header-h) + 16px);
+}
+
+body {
+	margin: 0;
+	background: var(--ktd-color-bg);
+	color: var(--ktd-color-text);
+	font-family: var(--ktd-font-body);
+	font-size: var(--ktd-fs-md);
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0 0 var(--ktd-space-3);
+	color: var(--ktd-color-heading);
+	font-family: var(--ktd-font-display);
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+h1 {
+	font-size: var(--ktd-fs-3xl);
+}
+
+h2 {
+	font-size: var(--ktd-fs-2xl);
+}
+
+h3 {
+	font-size: var(--ktd-fs-lg);
+	font-weight: 700;
+}
+
+p {
+	margin: 0 0 var(--ktd-space-3);
+}
+
+a {
+	color: var(--ktd-color-primary);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+a:hover {
+	color: var(--ktd-color-primary-hover);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+ul[class],
+ol[class] {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+:focus-visible {
+	outline: 3px solid var(--ktd-color-focus);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+.container {
+	width: 100%;
+	max-width: var(--ktd-container);
+	margin-inline: auto;
+	padding-inline: var(--ktd-gutter);
+}
+
+.visually-hidden {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.skip-link {
+	position: absolute;
+	top: -100px;
+	left: var(--ktd-gutter);
+	z-index: 1000;
+	padding: 10px 16px;
+	border-radius: var(--ktd-radius-sm);
+	background: var(--ktd-blue-900);
+	color: var(--ktd-white);
+	font-weight: 600;
+}
+
+.skip-link:focus {
+	top: 12px;
+}
+
+.icon {
+	display: inline-block;
+	fill: none;
+	flex: none;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.icon--sm {
+	width: 16px;
+	height: 16px;
+}
+
+.icon--lg {
+	width: 28px;
+	height: 28px;
+}
+
+.muted {
+	color: var(--ktd-muted);
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
