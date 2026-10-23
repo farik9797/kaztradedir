@@ -1,0 +1,347 @@
+/* Страница поставщика и список поставщиков. */
+
+/* ---------- Шапка поставщика ---------- */
+.supplier-hero {
+	position: relative;
+	display: grid;
+	gap: 20px;
+	padding: 28px 24px;
+	overflow: hidden;
+	border-radius: var(--ktd-radius-lg);
+	background: var(--ktd-blue-900);
+	color: #c6d3ea;
+	isolation: isolate;
+}
+
+.supplier-hero::after {
+	content: "";
+	position: absolute;
+	top: -90px;
+	right: -60px;
+	z-index: -1;
+	width: 260px;
+	height: 260px;
+	border-radius: 40px;
+	background: linear-gradient(135deg, rgb(0 171 254 / 30%), rgb(10 95 214 / 0%));
+	transform: rotate(45deg);
+}
+
+.supplier-hero__main {
+	display: grid;
+	grid-template-columns: 72px 1fr;
+	gap: 16px;
+	align-items: center;
+}
+
+.supplier-hero .monogram {
+	width: 72px;
+	height: 72px;
+	font-size: var(--ktd-fs-xl);
+	box-shadow: 0 0 0 4px rgb(255 255 255 / 12%);
+}
+
+.supplier-hero h1 {
+	margin: 0 0 6px;
+	color: var(--ktd-white);
+	font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+}
+
+.supplier-hero__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 16px;
+	font-size: var(--ktd-fs-sm);
+}
+
+.supplier-hero__meta span {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.supplier-hero__meta .icon {
+	color: var(--ktd-sky-400);
+}
+
+.supplier-hero__badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.supplier-hero__badges .badge {
+	background: rgb(255 255 255 / 10%);
+	color: var(--ktd-white);
+}
+
+.supplier-hero__badges .badge--verified {
+	background: var(--ktd-white);
+	color: var(--ktd-blue-900);
+}
+
+.supplier-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.supplier-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 10px;
+}
+
+.supplier-stat {
+	padding: 12px 14px;
+	border-radius: var(--ktd-radius);
+	background: rgb(255 255 255 / 7%);
+}
+
+.supplier-stat b {
+	display: block;
+	color: var(--ktd-white);
+	font-family: var(--ktd-font-display);
+	font-size: var(--ktd-fs-lg);
+}
+
+.supplier-stat span {
+	font-size: var(--ktd-fs-xs);
+}
+
+@media (min-width: 1024px) {
+	.supplier-hero {
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: center;
+		padding: 36px 40px;
+	}
+
+	.supplier-stats {
+		grid-column: 1 / -1;
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* ---------- Тело страницы поставщика ---------- */
+.supplier-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--ktd-space-5);
+	margin-top: var(--ktd-space-5);
+}
+
+.info-card {
+	padding: 20px;
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius-lg);
+	background: var(--ktd-white);
+}
+
+.info-card + .info-card {
+	margin-top: var(--ktd-space-4);
+}
+
+.info-card h2 {
+	margin-bottom: 14px;
+	font-size: var(--ktd-fs-lg);
+}
+
+.kv {
+	display: grid;
+	grid-template-columns: minmax(120px, 40%) 1fr;
+	gap: 8px 16px;
+	margin: 0;
+	font-size: var(--ktd-fs-sm);
+}
+
+.kv dt {
+	color: var(--ktd-muted);
+}
+
+.kv dd {
+	margin: 0;
+	color: var(--ktd-ink);
+	font-weight: 600;
+}
+
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.tag-list .chip {
+	min-height: 30px;
+	padding: 3px 12px;
+	font-size: var(--ktd-fs-xs);
+}
+
+.doc-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+	gap: 10px;
+}
+
+.doc-card {
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	gap: 4px 12px;
+	align-items: center;
+	padding: 14px;
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius);
+	color: var(--ktd-ink);
+	font-size: var(--ktd-fs-sm);
+	text-decoration: none;
+}
+
+.doc-card:hover {
+	border-color: var(--ktd-color-primary);
+}
+
+.doc-card__icon {
+	display: grid;
+	grid-row: span 2;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	border-radius: var(--ktd-radius-sm);
+	background: var(--ktd-blue-50);
+	color: var(--ktd-blue-600);
+}
+
+.doc-card small {
+	color: var(--ktd-muted);
+	font-size: var(--ktd-fs-xs);
+}
+
+.social-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.social-links a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 6px 12px;
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius-sm);
+	color: var(--ktd-ink);
+	font-size: var(--ktd-fs-sm);
+	text-decoration: none;
+}
+
+.social-links a:hover {
+	border-color: var(--ktd-color-primary);
+	color: var(--ktd-color-primary);
+}
+
+@media (min-width: 1100px) {
+	.supplier-layout {
+		grid-template-columns: minmax(0, 1fr) 360px;
+		align-items: start;
+	}
+
+	.supplier-aside {
+		position: sticky;
+		top: calc(var(--ktd-header-h) + 72px);
+	}
+}
+
+/* ---------- Список поставщиков ---------- */
+.list-head {
+	display: grid;
+	gap: 12px;
+	margin-bottom: var(--ktd-space-4);
+}
+
+.list-head p {
+	max-width: 70ch;
+	margin: 0;
+	color: var(--ktd-muted);
+}
+
+.supplier-search {
+	display: flex;
+	gap: 8px;
+	max-width: 640px;
+}
+
+.supplier-list {
+	display: grid;
+	gap: var(--ktd-space-3);
+}
+
+.supplier-row-card {
+	display: grid;
+	grid-template-columns: 56px minmax(0, 1fr);
+	gap: 14px 16px;
+	padding: 18px;
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius-lg);
+	background: var(--ktd-white);
+	transition: border-color var(--ktd-dur) var(--ktd-ease), box-shadow var(--ktd-dur) var(--ktd-ease);
+}
+
+.supplier-row-card:hover {
+	border-color: var(--ktd-blue-100);
+	box-shadow: var(--ktd-shadow);
+}
+
+.supplier-row-card h2 {
+	margin: 0 0 4px;
+	font-size: var(--ktd-fs-lg);
+}
+
+.supplier-row-card h2 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.supplier-row-card h2 a:hover {
+	color: var(--ktd-color-primary);
+}
+
+.supplier-row-card p {
+	margin: 8px 0 0;
+	color: var(--ktd-text);
+	font-size: var(--ktd-fs-sm);
+}
+
+.supplier-row-card__side {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+
+.supplier-row-card__thumbs {
+	display: flex;
+	gap: 6px;
+}
+
+.supplier-row-card__thumbs img {
+	width: 56px;
+	height: 56px;
+	padding: 4px;
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius-sm);
+	object-fit: contain;
+	background: var(--ktd-white);
+}
+
+@media (min-width: 900px) {
+	.supplier-row-card {
+		grid-template-columns: 56px minmax(0, 1fr) auto;
+		align-items: center;
+	}
+
+	.supplier-row-card__side {
+		grid-column: auto;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+}

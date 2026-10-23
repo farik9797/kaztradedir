@@ -1,0 +1,186 @@
+/* Контентные страницы: запрос цены (RFQ), заявка поставщика, FAQ. */
+
+.content-hero {
+	position: relative;
+	display: grid;
+	gap: 12px;
+	margin-bottom: var(--ktd-space-5);
+	padding: 32px 24px;
+	overflow: hidden;
+	border-radius: var(--ktd-radius-lg);
+	background: var(--ktd-blue-50);
+	isolation: isolate;
+}
+
+.content-hero::after {
+	content: "";
+	position: absolute;
+	right: -40px;
+	bottom: -70px;
+	z-index: -1;
+	width: 220px;
+	height: 220px;
+	border-radius: 36px;
+	background: linear-gradient(135deg, rgb(0 171 254 / 22%), rgb(10 95 214 / 8%));
+	transform: rotate(45deg);
+}
+
+.content-hero h1 {
+	margin: 0;
+}
+
+.content-hero p {
+	max-width: 62ch;
+	margin: 0;
+	color: var(--ktd-text);
+	font-size: var(--ktd-fs-lg);
+}
+
+@media (min-width: 768px) {
+	.content-hero {
+		padding: 44px 48px;
+	}
+}
+
+/* Загрузка файла */
+.file-drop {
+	display: grid;
+	justify-items: center;
+	gap: 6px;
+	padding: 20px;
+	border: 2px dashed var(--ktd-line-strong);
+	border-radius: var(--ktd-radius);
+	color: var(--ktd-muted);
+	font-size: var(--ktd-fs-sm);
+	text-align: center;
+	cursor: pointer;
+	transition: border-color var(--ktd-dur) var(--ktd-ease), background-color var(--ktd-dur) var(--ktd-ease);
+}
+
+.file-drop:hover,
+.file-drop:focus-within {
+	border-color: var(--ktd-color-primary);
+	background: var(--ktd-blue-50);
+}
+
+.file-drop .icon {
+	color: var(--ktd-blue-600);
+}
+
+.file-drop input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.inline-fields {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 120px;
+	gap: 8px;
+}
+
+/* Боковая колонка «Как это работает» */
+.side-steps {
+	display: grid;
+	gap: 16px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: s;
+}
+
+.side-steps li {
+	display: grid;
+	grid-template-columns: 32px 1fr;
+	gap: 12px;
+	font-size: var(--ktd-fs-sm);
+	counter-increment: s;
+}
+
+.side-steps li::before {
+	content: counter(s);
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: var(--ktd-color-primary);
+	color: var(--ktd-white);
+	font-family: var(--ktd-font-display);
+	font-weight: 800;
+}
+
+.side-steps b {
+	display: block;
+	color: var(--ktd-ink);
+}
+
+/* FAQ */
+.faq {
+	display: grid;
+	gap: 10px;
+	max-width: 860px;
+}
+
+.faq details {
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius);
+	background: var(--ktd-white);
+	transition: border-color var(--ktd-dur) var(--ktd-ease);
+}
+
+.faq details[open] {
+	border-color: var(--ktd-blue-100);
+	box-shadow: var(--ktd-shadow-sm);
+}
+
+.faq summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 56px;
+	padding: 14px 18px;
+	color: var(--ktd-blue-900);
+	font-family: var(--ktd-font-display);
+	font-weight: 700;
+	list-style: none;
+	cursor: pointer;
+}
+
+.faq summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq summary .icon {
+	flex: none;
+	color: var(--ktd-blue-600);
+	transition: transform var(--ktd-dur) var(--ktd-ease);
+}
+
+.faq details[open] summary .icon {
+	transform: rotate(45deg);
+}
+
+.faq__body {
+	padding: 0 18px 16px;
+	color: var(--ktd-text);
+	font-size: var(--ktd-fs-sm);
+}
+
+.faq-group + .faq-group {
+	margin-top: var(--ktd-space-6);
+}
+
+.faq-group h2 {
+	margin-bottom: 14px;
+	font-size: var(--ktd-fs-xl);
+}
+
+.toc {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: var(--ktd-space-5);
+}

@@ -169,6 +169,7 @@ $$('[data-qty-box]').forEach((box) => {
 		input.value = v;
 		const buy = document.getElementById(box.dataset.buy);
 		if (buy) buy.dataset.qty = v;
+		box.dispatchEvent(new CustomEvent('qty:change', { bubbles: true, detail: v }));
 	};
 	$('[data-qty-minus]', box).addEventListener('click', () => set(Number(input.value) - step));
 	$('[data-qty-plus]', box).addEventListener('click', () => set(Number(input.value) + step));
@@ -262,4 +263,81 @@ $$('[data-filters-reset]').forEach((btn) =>
 	})
 );
 
+/* ---------- Корзина: суммы по поставщикам и итог ---------- */
+const cart = $('[data-cart]');
+if (cart) {
+	const fmt = (n) => `${n.toLocaleString('ru-RU').replace(/ |\s/g, ' ')} ₸`;
+	const recalc = () => {
+		let total = 0;
+		let lines = 0;
+		const groups = $$('[data-vendor-group]', cart);
+		groups.forEach((group) => {
+			let sum = 0;
+			$$('[data-cart-item]', group).forEach((item) => {
+				const line = Number(item.dataset.price) * Number($('input', item).value);
+				$('[data-line-sum]', item).textContent = fmt(line);
+				sum += line;
+				lines += 1;
+			});
+			$('[data-group-sum]', group).textContent = fmt(sum);
+			total += sum;
+		});
+		$('[data-cart-total]', cart).textContent = fmt(total);
+		$('[data-cart-lines]', cart).textContent = lines;
+		$('[data-cart-vendors]', cart).textContent = groups.length;
+		$('[data-cart-empty]', cart).hidden = groups.length > 0;
+		$('aside', cart).hidden = groups.length === 0;
+	};
+	cart.addEventListener('qty:change', recalc);
+	$$('[data-remove-item]', cart).forEach((btn) =>
+		btn.addEventListener('click', () => {
+			const group = btn.closest('[data-vendor-group]');
+			btn.closest('[data-cart-item]').remove();
+			if (!$('[data-cart-item]', group)) group.remove();
+			recalc();
+			toast('Товар удалён из корзины');
+		})
+	);
+	recalc();
+}
+
+/* ---------- Страница избранного ---------- */
+const favGrid = $('[data-fav-grid]');
+if (favGrid) {
+	const sync = () => {
+		let shown = 0;
+		$$('[data-card-id]', favGrid).forEach((card) => {
+			card.hidden = !favs.has(card.dataset.cardId);
+			if (!card.hidden) shown += 1;
+		});
+		$('[data-fav-empty]').hidden = shown > 0;
+	};
+	favGrid.addEventListener('click', (e) => e.target.closest('.fav-btn') && setTimeout(sync));
+	sync();
+}
+
+/* ---------- Файлы: показываем выбранные имена ---------- */
+$$('[data-file-input]').forEach((input) =>
+	input.addEventListener('change', () => {
+		const label = $('[data-file-label]', input.closest('.file-drop'));
+		const names = [...input.files].map((f) => f.name);
+		if (names.length) label.textContent = names.join(', ');
+	})
+);
+
+/* ---------- Формы прототипа: проверка обязательных полей ---------- */
+$$('form[novalidate]:not(#rfq-form)').forEach((form) =>
+	form.addEventListener('submit', (e) => {
+		if (!form.reportValidity()) {
+			e.preventDefault();
+			return;
+		}
+		if (!form.hasAttribute('data-checkout')) {
+			e.preventDefault();
+			toast('Прототип: форма не отправляется. На сайте заявку получит администратор.');
+		}
+	})
+);
+
 renderCounters();
+$$('[data-fav-total]').forEach((el) => (el.textContent = favs.size));

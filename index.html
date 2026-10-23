@@ -11,12 +11,15 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Onest:wght@400;500;600;700&display=swap">
-	<link rel="stylesheet" href="assets/css/tokens.css?v=0.4.3">
-	<link rel="stylesheet" href="assets/css/base.css?v=0.4.3">
-	<link rel="stylesheet" href="assets/css/components.css?v=0.4.3">
-	<link rel="stylesheet" href="assets/css/layout.css?v=0.4.3">
-	<link rel="stylesheet" href="assets/css/pages.css?v=0.4.3">
-	<script type="module" src="assets/js/main.js?v=0.4.3"></script>
+	<link rel="stylesheet" href="assets/css/tokens.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/base.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/components.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/layout.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/pages.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/suppliers.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/commerce.css?v=0.5.2">
+	<link rel="stylesheet" href="assets/css/content.css?v=0.5.2">
+	<script type="module" src="assets/js/main.js?v=0.5.2"></script>
 </head>
 <body>
 <div class="proto-bar">Прототип для согласования · товары, цены, поставщики и отзывы — демо-данные</div>
@@ -25,7 +28,7 @@
 	<div class="container header-main">
 		<button class="icon-btn header-burger" type="button" data-drawer-open="mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Открыть меню"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-menu"></use></svg></button>
 		<a class="site-logo" href="index.html" aria-label="KazTradeDir — на главную"><img src="assets/img/logo.png" alt="KazTradeDir" width="175" height="40"></a>
-		<form class="header-search" role="search" action="catalog.html">
+		<form class="header-search" role="search" action="search.html">
 			<label class="visually-hidden" for="search-cat">Категория поиска</label>
 			<select class="select header-search__cat" id="search-cat" name="product_cat"><option value="">Все категории</option><option value="promyshlennost-i-oborudovanie">Промышленность и оборудование</option><option value="elektronika-i-elektrotehnika">Электроника и электротехника</option><option value="stroitelstvo-i-stroymaterialy">Строительство и строительные материалы</option><option value="meditsina-i-laboratorii">Медицина, стоматология и лаборатории</option><option value="kosmetika-i-parfyumeriya">Косметика, парфюмерия и уход</option><option value="odezhda-obuv-aksessuary">Одежда, обувь и аксессуары</option><option value="produkty-pitaniya-i-napitki">Продукты питания и напитки</option><option value="selskoe-hozyaystvo">Сельское хозяйство и животноводство</option><option value="himicheskaya-produktsiya">Химическая продукция и сырьё</option><option value="metally-i-mineraly">Металлы, минералы и сырьевые материалы</option><option value="mebel-i-tovary-dlya-doma">Мебель, интерьер и товары для дома</option><option value="avto-transport-zapchasti">Автомобили, транспорт и запчасти</option><option value="energetika">Энергетика и электрогенерация</option><option value="skladskoe-i-torgovoe-oborudovanie">Складское и торговое оборудование</option><option value="tekstil-i-tkani">Текстиль, ткани и материалы для производства</option><option value="nauka-i-izmereniya">Наука, измерения и контроль качества</option><option value="sport-otdyh-turizm">Спорт, отдых и туризм</option><option value="detskie-tovary">Детские товары, игрушки и образование</option><option value="oborudovanie-dlya-biznesa">Оборудование для бизнеса и сферы услуг</option><option value="bezopasnost-i-svyaz">Безопасность и связь</option><option value="vodosnabzhenie-otoplenie-ventilyatsiya">Водоснабжение, отопление и вентиляция</option><option value="bumaga-poligrafiya-ofis">Бумага, полиграфия и офисные товары</option><option value="tovary-dlya-zhivotnyh">Товары для животных</option><option value="ekologiya-i-pererabotka">Экология, переработка и очистка</option><option value="bytovaya-tehnika">Бытовая техника и товары повседневного спроса</option><option value="zapchasti-i-komplektuyushchie">Запасные части и комплектующие</option><option value="syre-i-polufabrikaty">Сырьё и полуфабрикаты для производства</option><option value="yuvelirnye-izdeliya">Ювелирные изделия и предметы роскоши</option><option value="muzyka-zvuk-razvlecheniya">Музыка, звук и развлечения</option><option value="robototehnika-i-avtomatizatsiya">Робототехника, автоматизация и новые технологии</option></select>
 			<label class="visually-hidden" for="search-q">Поиск</label>
@@ -33,15 +36,15 @@
 			<button class="header-search__btn" type="submit" aria-label="Найти"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-search"></use></svg></button>
 		</form>
 		<nav class="header-actions" aria-label="Личное">
-			<a class="header-action header-action--fav" href="#"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-heart"></use></svg><span class="header-action__label">Избранное</span><span class="counter" data-fav-count></span></a>
-			<a class="header-action header-action--account" href="#"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-user"></use></svg><span class="header-action__label">Войти</span></a>
-			<a class="header-action" href="#"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg><span class="header-action__label">Корзина</span><span class="counter" data-cart-count></span></a>
+			<a class="header-action header-action--fav" href="favorites.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-heart"></use></svg><span class="header-action__label">Избранное</span><span class="counter" data-fav-count></span></a>
+			<a class="header-action header-action--account" href="login.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-user"></use></svg><span class="header-action__label">Войти</span></a>
+			<a class="header-action" href="cart.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg><span class="header-action__label">Корзина</span><span class="counter" data-cart-count></span></a>
 		</nav>
 	</div>
 	<div class="header-nav">
 		<div class="container header-nav__inner">
 			<button class="btn catalog-toggle" type="button" aria-expanded="false" aria-controls="mega-menu"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-layout-grid"></use></svg><span>Каталог</span><svg class="icon icon--sm catalog-toggle__chevron" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></button>
-			<nav class="main-menu" aria-label="Основное меню"><a href="#">Поставщики</a><a href="#rfq">Запрос цены</a><a href="#">Покупателям</a><a href="#">Поставщикам</a><a href="#">О проекте</a><a href="#">Контакты</a></nav>
+			<nav class="main-menu" aria-label="Основное меню"><a href="suppliers.html">Поставщики</a><a href="rfq.html">Запрос цены</a><a href="faq.html">Покупателям</a><a href="become-supplier.html">Поставщикам</a><a href="#">О проекте</a><a href="#">Контакты</a></nav>
 			<button class="btn btn--ghost header-nav__rfq" type="button" data-rfq-open=""><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-send"></use></svg>Разместить запрос</button>
 		</div>
 	</div>
@@ -56,7 +59,7 @@
 	<div class="drawer__head"><img src="assets/img/logo.png" alt="KazTradeDir" width="140" height="32"><button class="icon-btn" type="button" data-drawer-close aria-label="Закрыть меню"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-x"></use></svg></button></div>
 	<div class="drawer__body mobile-nav">
 		<div class="mobile-nav__section"><p class="mobile-nav__title">Каталог</p><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-factory"></use></svg><span>Промышленность и оборудование</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Станки и производственные линии</a></li><li><a href="catalog.html">Насосы и компрессоры</a></li><li><a href="catalog.html">Генераторы и сварочное оборудование</a></li><li><a href="catalog.html">Подъёмное оборудование</a></li><li><a href="catalog.html">Пищевое и упаковочное оборудование</a></li><li><a href="catalog.html">Инструмент</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-cpu"></use></svg><span>Электроника и электротехника</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Кабель и провод</a></li><li><a href="catalog.html">Электрощитовое оборудование</a></li><li><a href="catalog.html">Освещение</a></li><li><a href="catalog.html">Электроустановочные изделия</a></li><li><a href="catalog.html">Компьютеры и оргтехника</a></li><li><a href="catalog.html">Электронные компоненты</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-hard-hat"></use></svg><span>Строительство и строительные материалы</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Цемент и сухие смеси</a></li><li><a href="catalog.html">Кирпич и блоки</a></li><li><a href="catalog.html">Металлопрокат для стройки</a></li><li><a href="catalog.html">Кровля и фасад</a></li><li><a href="catalog.html">Изоляция</a></li><li><a href="catalog.html">Отделочные материалы</a></li><li><a href="catalog.html">Строительная техника</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"></use></svg><span>Медицина, стоматология и лаборатории</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Медицинское оборудование</a></li><li><a href="catalog.html">Стоматология</a></li><li><a href="catalog.html">Лабораторное оборудование</a></li><li><a href="catalog.html">Расходные материалы</a></li><li><a href="catalog.html">Средства защиты</a></li><li><a href="catalog.html">Мебель для клиник</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-sparkles"></use></svg><span>Косметика, парфюмерия и уход</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Уход за кожей</a></li><li><a href="catalog.html">Уход за волосами</a></li><li><a href="catalog.html">Декоративная косметика</a></li><li><a href="catalog.html">Парфюмерия</a></li><li><a href="catalog.html">Профессиональная косметика</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shirt"></use></svg><span>Одежда, обувь и аксессуары</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Спецодежда и СИЗ</a></li><li><a href="catalog.html">Мужская одежда</a></li><li><a href="catalog.html">Женская одежда</a></li><li><a href="catalog.html">Детская одежда</a></li><li><a href="catalog.html">Обувь</a></li><li><a href="catalog.html">Аксессуары</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-apple"></use></svg><span>Продукты питания и напитки</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Мясо и птица</a></li><li><a href="catalog.html">Молочная продукция</a></li><li><a href="catalog.html">Бакалея и крупы</a></li><li><a href="catalog.html">Кондитерские изделия</a></li><li><a href="catalog.html">Напитки</a></li><li><a href="catalog.html">Фрукты и овощи</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-tractor"></use></svg><span>Сельское хозяйство и животноводство</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Сельхозтехника</a></li><li><a href="catalog.html">Семена и саженцы</a></li><li><a href="catalog.html">Удобрения и СЗР</a></li><li><a href="catalog.html">Корма и добавки</a></li><li><a href="catalog.html">Оборудование для ферм</a></li><li><a href="catalog.html">Поливные системы</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-flask-conical"></use></svg><span>Химическая продукция и сырьё</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Промышленная химия</a></li><li><a href="catalog.html">Лакокрасочные материалы</a></li><li><a href="catalog.html">Бытовая химия</a></li><li><a href="catalog.html">Полимеры и пластмассы</a></li><li><a href="catalog.html">Реактивы</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-pickaxe"></use></svg><span>Металлы, минералы и сырьевые материалы</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Чёрный металлопрокат</a></li><li><a href="catalog.html">Цветные металлы</a></li><li><a href="catalog.html">Трубы</a></li><li><a href="catalog.html">Метизы</a></li><li><a href="catalog.html">Нерудные материалы</a></li><li><a href="catalog.html">Руды и концентраты</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-sofa"></use></svg><span>Мебель, интерьер и товары для дома</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Офисная мебель</a></li><li><a href="catalog.html">Мебель для дома</a></li><li><a href="catalog.html">Мебель для HoReCa</a></li><li><a href="catalog.html">Текстиль для дома</a></li><li><a href="catalog.html">Посуда</a></li><li><a href="catalog.html">Декор</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-car"></use></svg><span>Автомобили, транспорт и запчасти</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Легковые автомобили</a></li><li><a href="catalog.html">Грузовой транспорт</a></li><li><a href="catalog.html">Спецтехника</a></li><li><a href="catalog.html">Шины и диски</a></li><li><a href="catalog.html">Масла и автохимия</a></li><li><a href="catalog.html">Автоаксессуары</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-zap"></use></svg><span>Энергетика и электрогенерация</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Генераторы и электростанции</a></li><li><a href="catalog.html">Солнечная энергетика</a></li><li><a href="catalog.html">ИБП и стабилизаторы</a></li><li><a href="catalog.html">Трансформаторы</a></li><li><a href="catalog.html">Аккумуляторы</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-warehouse"></use></svg><span>Складское и торговое оборудование</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Стеллажи</a></li><li><a href="catalog.html">Складская техника</a></li><li><a href="catalog.html">Торговое оборудование</a></li><li><a href="catalog.html">Холодильное оборудование</a></li><li><a href="catalog.html">Весы</a></li><li><a href="catalog.html">Упаковка</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-scissors"></use></svg><span>Текстиль, ткани и материалы для производства</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Ткани</a></li><li><a href="catalog.html">Нитки и фурнитура</a></li><li><a href="catalog.html">Нетканые материалы</a></li><li><a href="catalog.html">Технический текстиль</a></li><li><a href="catalog.html">Кожа и кожзаменители</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-microscope"></use></svg><span>Наука, измерения и контроль качества</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Измерительные приборы</a></li><li><a href="catalog.html">Лабораторные анализаторы</a></li><li><a href="catalog.html">Неразрушающий контроль</a></li><li><a href="catalog.html">Метрология и калибровка</a></li><li><a href="catalog.html">Геодезическое оборудование</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-dumbbell"></use></svg><span>Спорт, отдых и туризм</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Тренажёры</a></li><li><a href="catalog.html">Спортивный инвентарь</a></li><li><a href="catalog.html">Туризм и кемпинг</a></li><li><a href="catalog.html">Оборудование для площадок</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-baby"></use></svg><span>Детские товары, игрушки и образование</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Игрушки</a></li><li><a href="catalog.html">Детская мебель</a></li><li><a href="catalog.html">Учебное оборудование</a></li><li><a href="catalog.html">Канцтовары для школы</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-briefcase-business"></use></svg><span>Оборудование для бизнеса и сферы услуг</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Оборудование для HoReCa</a></li><li><a href="catalog.html">Клининг</a></li><li><a href="catalog.html">Прачечное оборудование</a></li><li><a href="catalog.html">Салоны красоты</a></li><li><a href="catalog.html">Кассы и POS</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shield"></use></svg><span>Безопасность и связь</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Видеонаблюдение</a></li><li><a href="catalog.html">Охранная и пожарная сигнализация</a></li><li><a href="catalog.html">Контроль доступа</a></li><li><a href="catalog.html">Сетевое и телеком-оборудование</a></li><li><a href="catalog.html">Пожаротушение</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-droplets"></use></svg><span>Водоснабжение, отопление и вентиляция</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Котлы и отопление</a></li><li><a href="catalog.html">Насосы для воды</a></li><li><a href="catalog.html">Трубы и фитинги</a></li><li><a href="catalog.html">Вентиляция и кондиционирование</a></li><li><a href="catalog.html">Водоочистка</a></li><li><a href="catalog.html">Сантехника</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-printer"></use></svg><span>Бумага, полиграфия и офисные товары</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Бумага и картон</a></li><li><a href="catalog.html">Полиграфическое оборудование</a></li><li><a href="catalog.html">Канцелярия</a></li><li><a href="catalog.html">Расходники для печати</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-paw-print"></use></svg><span>Товары для животных</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Корма</a></li><li><a href="catalog.html">Ветеринарные препараты</a></li><li><a href="catalog.html">Аксессуары и амуниция</a></li><li><a href="catalog.html">Зоогигиена</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-recycle"></use></svg><span>Экология, переработка и очистка</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Оборудование для переработки</a></li><li><a href="catalog.html">Очистные сооружения</a></li><li><a href="catalog.html">Контейнеры для отходов</a></li><li><a href="catalog.html">Вторсырьё</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-washing-machine"></use></svg><span>Бытовая техника и товары повседневного спроса</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Крупная бытовая техника</a></li><li><a href="catalog.html">Мелкая бытовая техника</a></li><li><a href="catalog.html">Климатическая техника</a></li><li><a href="catalog.html">Хозтовары</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-cog"></use></svg><span>Запасные части и комплектующие</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Подшипники</a></li><li><a href="catalog.html">Приводы и редукторы</a></li><li><a href="catalog.html">Гидравлика и пневматика</a></li><li><a href="catalog.html">Уплотнения и РТИ</a></li><li><a href="catalog.html">Электродвигатели</a></li><li><a href="catalog.html">Запчасти к спецтехнике</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-boxes"></use></svg><span>Сырьё и полуфабрикаты для производства</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Пищевое сырьё</a></li><li><a href="catalog.html">Полимерное сырьё</a></li><li><a href="catalog.html">Древесина и пиломатериалы</a></li><li><a href="catalog.html">Бумажное сырьё</a></li><li><a href="catalog.html">Металлические заготовки</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-gem"></use></svg><span>Ювелирные изделия и предметы роскоши</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Украшения</a></li><li><a href="catalog.html">Часы</a></li><li><a href="catalog.html">Сувениры и подарки</a></li><li><a href="catalog.html">Аксессуары премиум</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-music"></use></svg><span>Музыка, звук и развлечения</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Звуковое оборудование</a></li><li><a href="catalog.html">Музыкальные инструменты</a></li><li><a href="catalog.html">Световое оборудование</a></li><li><a href="catalog.html">Аттракционы</a></li></ul></details><details><summary><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-bot"></use></svg><span>Робототехника, автоматизация и новые технологии</span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-chevron-down"></use></svg></summary><ul><li><a href="catalog.html"><b>Все товары категории</b></a></li><li><a href="catalog.html">Промышленные роботы</a></li><li><a href="catalog.html">Контроллеры и ПЛК</a></li><li><a href="catalog.html">Датчики</a></li><li><a href="catalog.html">Дроны</a></li><li><a href="catalog.html">IoT и умный дом</a></li><li><a href="catalog.html">3D-печать</a></li></ul></details></div>
-		<div class="mobile-nav__section mobile-nav__links"><a href="#">Поставщики</a><a href="#rfq">Запрос цены</a><a href="#">Покупателям</a><a href="#">Поставщикам</a><a href="#">О проекте</a><a href="#">Контакты</a><a href="#">Избранное</a><a href="#">Войти / Регистрация</a></div>
+		<div class="mobile-nav__section mobile-nav__links"><a href="suppliers.html">Поставщики</a><a href="rfq.html">Запрос цены</a><a href="faq.html">Покупателям</a><a href="become-supplier.html">Поставщикам</a><a href="#">О проекте</a><a href="#">Контакты</a><a href="favorites.html">Избранное</a><a href="login.html">Войти / Регистрация</a><a href="account.html">Личный кабинет</a></div>
 	</div>
 </aside>
 <main id="main">
@@ -67,7 +70,7 @@
 			<span class="hero__eyebrow"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-handshake"></use></svg>B2B-каталог поставщиков</span>
 			<h1 id="hero-title">KazTradeDir — <span>B2B маркетплейс</span> для бизнеса</h1>
 			<p class="hero__lead">Найдите надёжных поставщиков и качественные товары из всех отраслей — от промышленности до товаров для дома.</p>
-			<form class="hero__search" role="search" action="catalog.html">
+			<form class="hero__search" role="search" action="search.html">
 				<label class="visually-hidden" for="hero-q">Что ищете?</label>
 				<input class="input" id="hero-q" type="search" name="s" placeholder="Например: генератор 50 кВт">
 				<button class="btn" type="submit"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-search"></use></svg>Найти</button>
@@ -94,7 +97,7 @@
 
 <section class="section--tight container" aria-labelledby="popular-title">
 	<div class="section-head"><h2 class="section-title" id="popular-title">Популярные товары</h2><a class="section-link" href="catalog.html">Весь каталог <svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg></a></div>
-	<div class="product-grid product-grid--scroll"><article class="product-card">
+	<div class="product-grid product-grid--scroll"><article class="product-card" data-card-id="p1">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-cnc-lathe.webp" alt="Токарный станок с ЧПУ DMG MORI NLX 2500" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge">Хит</span></div>
@@ -113,7 +116,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p1" data-qty="1"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p10">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-motor.webp" alt="Электродвигатель 7,5 кВт" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge badge--sale">−9%</span></div>
@@ -132,7 +135,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p10" data-qty="1"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p11">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-laptop.webp" alt="Ноутбук для офиса 15,6″" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"></div>
@@ -151,7 +154,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p11" data-qty="5"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p12">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-cement.webp" alt="Цемент М500, мешок 50 кг" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"></div>
@@ -170,7 +173,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p12" data-qty="100"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p13">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-smartphone.webp" alt="Смартфон, партия от 10 шт" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"></div>
@@ -193,11 +196,11 @@
 </section>
 
 <section class="section container" aria-labelledby="suppliers-title">
-	<div class="section-head"><h2 class="section-title" id="suppliers-title">Поставщики</h2><a class="section-link" href="#">Все поставщики <svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg></a></div>
+	<div class="section-head"><h2 class="section-title" id="suppliers-title">Поставщики</h2><a class="section-link" href="suppliers.html">Все поставщики <svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg></a></div>
 	<div class="supplier-row"><article class="supplier-card">
 	<div class="monogram" aria-hidden="true">ДА</div>
 	<div>
-		<h3 class="supplier-card__name"><a href="#">Демо-поставщик «Алматы»</a></h3>
+		<h3 class="supplier-card__name"><a href="supplier.html">Демо-поставщик «Алматы»</a></h3>
 		<div class="supplier-card__meta">
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-map-pin"></use></svg>Алматы, Казахстан</span>
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-package"></use></svg>128 товаров</span>
@@ -208,7 +211,7 @@
 </article><article class="supplier-card">
 	<div class="monogram" aria-hidden="true">DS</div>
 	<div>
-		<h3 class="supplier-card__name"><a href="#">Demo Supplier Co. (демо)</a></h3>
+		<h3 class="supplier-card__name"><a href="supplier.html">Demo Supplier Co. (демо)</a></h3>
 		<div class="supplier-card__meta">
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-map-pin"></use></svg>Нинбо, Китай</span>
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-package"></use></svg>312 товаров</span>
@@ -219,7 +222,7 @@
 </article><article class="supplier-card">
 	<div class="monogram" aria-hidden="true">ДА</div>
 	<div>
-		<h3 class="supplier-card__name"><a href="#">Демо-поставщик «Астана»</a></h3>
+		<h3 class="supplier-card__name"><a href="supplier.html">Демо-поставщик «Астана»</a></h3>
 		<div class="supplier-card__meta">
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-map-pin"></use></svg>Астана, Казахстан</span>
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-package"></use></svg>64 товаров</span>
@@ -230,7 +233,7 @@
 </article><article class="supplier-card">
 	<div class="monogram" aria-hidden="true">ДШ</div>
 	<div>
-		<h3 class="supplier-card__name"><a href="#">Демо-поставщик «Шымкент»</a></h3>
+		<h3 class="supplier-card__name"><a href="supplier.html">Демо-поставщик «Шымкент»</a></h3>
 		<div class="supplier-card__meta">
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-map-pin"></use></svg>Шымкент, Казахстан</span>
 			<span><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-package"></use></svg>41 товаров</span>
@@ -243,7 +246,7 @@
 
 <section class="section--tight container" aria-labelledby="offers-title">
 	<div class="section-head"><h2 class="section-title" id="offers-title">Специальные предложения</h2><a class="section-link" href="catalog.html">Все предложения <svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg></a></div>
-	<div class="product-grid"><article class="product-card">
+	<div class="product-grid"><article class="product-card" data-card-id="p2">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-pump.webp" alt="Насос центробежный Wilo" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge badge--sale">−5%</span></div>
@@ -262,7 +265,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p2" data-qty="2"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p3">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-generator.webp" alt="Генератор дизельный 50 кВт" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge badge--sale">−8%</span></div>
@@ -281,7 +284,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p3" data-qty="1"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p6">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-compressor.webp" alt="Компрессор поршневой 500 л" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge badge--sale">−7%</span></div>
@@ -300,7 +303,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p6" data-qty="1"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p9">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-bearing.webp" alt="Подшипник роликовый 22220" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge badge--sale">−10%</span></div>
@@ -319,7 +322,7 @@
 			<button class="btn btn--sm" type="button" data-add-to-cart="p9" data-qty="20"><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-shopping-cart"></use></svg>В корзину</button>
 		</div>
 	</div>
-</article><article class="product-card">
+</article><article class="product-card" data-card-id="p10">
 	<div class="product-card__media">
 		<img src="assets/img/demo/prod-motor.webp" alt="Электродвигатель 7,5 кВт" width="320" height="240" loading="lazy">
 		<div class="product-card__badges"><span class="badge badge--sale">−9%</span></div>
@@ -357,7 +360,7 @@
 			<h2>Хотите разместить товары?</h2>
 			<p>Размещение для поставщиков бесплатное. Оставьте заявку — менеджер KazTradeDir свяжется, проверит компанию и добавит каталог.</p>
 			<ul class="cta-card__list"><li><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-check"></use></svg>Без комиссии и подписки</li><li><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-check"></use></svg>Заказы приходят вам на email</li><li><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-check"></use></svg>Поставщики из любых стран</li></ul>
-			<a class="btn btn--light" href="#">Стать поставщиком <svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg></a>
+			<a class="btn btn--light" href="become-supplier.html">Стать поставщиком <svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg></a>
 		</div>
 		<div class="cta-card">
 			<h2>Не нашли нужный товар?</h2>
@@ -380,8 +383,8 @@
 			</div>
 		</div>
 		<nav aria-label="Категории"><p class="footer-title">Категории</p><ul class="footer-list"><li><a href="catalog.html">Промышленность и оборудование</a></li><li><a href="catalog.html">Электроника и электротехника</a></li><li><a href="catalog.html">Строительство и строительные материалы</a></li><li><a href="catalog.html">Медицина, стоматология и лаборатории</a></li><li><a href="catalog.html">Косметика, парфюмерия и уход</a></li><li><a href="catalog.html">Одежда, обувь и аксессуары</a></li><li><a href="catalog.html"><b>Все 30 категорий</b></a></li></ul></nav>
-		<nav aria-label="Покупателям"><p class="footer-title">Покупателям</p><ul class="footer-list"><li><a href="#">Как сделать заказ</a></li><li><a href="#rfq">Запрос цены</a></li><li><a href="#">Доставка и оплата</a></li><li><a href="#">FAQ</a></li></ul></nav>
-		<nav aria-label="Поставщикам"><p class="footer-title">Поставщикам</p><ul class="footer-list"><li><a href="#">Разместить товары</a></li><li><a href="#">Условия для поставщиков</a></li><li><a href="#">Проверка KazTradeDir</a></li><li><a href="#">О проекте</a></li></ul></nav>
+		<nav aria-label="Покупателям"><p class="footer-title">Покупателям</p><ul class="footer-list"><li><a href="faq.html#order">Как сделать заказ</a></li><li><a href="rfq.html">Запрос цены</a></li><li><a href="faq.html#delivery">Доставка и оплата</a></li><li><a href="faq.html">Вопросы и ответы</a></li></ul></nav>
+		<nav aria-label="Поставщикам"><p class="footer-title">Поставщикам</p><ul class="footer-list"><li><a href="become-supplier.html">Разместить товары</a></li><li><a href="faq.html#suppliers">Условия для поставщиков</a></li><li><a href="faq.html#verification">Проверка KazTradeDir</a></li><li><a href="suppliers.html">Все поставщики</a></li></ul></nav>
 		<div><p class="footer-title">Контакты</p><ul class="footer-list footer-contacts">
 			<li><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-phone"></use></svg><span>[телефон — уточнить]</span></li>
 			<li><svg class="icon icon--sm" aria-hidden="true"><use href="assets/icons.svg#i-mail"></use></svg><span>[email — уточнить]</span></li>
