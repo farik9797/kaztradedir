@@ -182,6 +182,27 @@
 	margin-left: auto;
 }
 
+/* 1024–1279 px: меню в одну строку. «Разместить запрос» дублирует пункт «Запрос цены» — прячем. */
+@media (max-width: 1279px) {
+	.header-nav__rfq {
+		display: none;
+	}
+
+	.catalog-toggle {
+		min-width: 0;
+	}
+
+	.main-menu {
+		flex-wrap: nowrap;
+		margin-left: 4px;
+	}
+
+	.main-menu a {
+		padding-inline: 9px;
+		white-space: nowrap;
+	}
+}
+
 @media (min-width: 768px) {
 	.site-logo img {
 		height: 40px;
