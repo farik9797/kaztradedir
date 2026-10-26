@@ -51,6 +51,9 @@
 
 .header-search__cat {
 	display: none;
+	/* Высоту задаёт форма (растягивание по flex); min-height общего .select (44px) больше её внутренней высоты (42px). */
+	min-height: 0;
+	height: auto;
 	max-width: 190px;
 	padding: 0 34px 0 14px;
 	border: 0;
