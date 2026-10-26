@@ -56,9 +56,14 @@
 	border: 0;
 	border-right: 1px solid var(--ktd-line);
 	border-radius: 4px 0 0 4px;
-	background-color: var(--ktd-surface);
+	background-color: var(--ktd-white);
+	color: var(--ktd-ink);
 	font-size: var(--ktd-fs-sm);
 	cursor: pointer;
+}
+
+.header-search__cat:hover {
+	background-color: var(--ktd-surface);
 }
 
 .header-search__input {

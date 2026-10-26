@@ -184,3 +184,126 @@
 	gap: 8px;
 	margin-bottom: var(--ktd-space-5);
 }
+
+/* ===== Формы: запрос цены, заявка поставщика ===== */
+.form-errors {
+	margin-bottom: var(--ktd-space-3);
+	padding: 12px 16px;
+	border: 1px solid var(--ktd-danger);
+	border-radius: var(--ktd-radius-sm);
+	background: var(--ktd-danger-bg);
+	color: var(--ktd-danger);
+	font-size: var(--ktd-fs-sm);
+	font-weight: 600;
+}
+
+.form-errors:focus {
+	outline: none;
+}
+
+.field__error {
+	color: var(--ktd-danger);
+	font-size: var(--ktd-fs-xs);
+	font-weight: 600;
+}
+
+.input[aria-invalid="true"],
+.select[aria-invalid="true"],
+.textarea[aria-invalid="true"],
+.file-drop[aria-invalid="true"] {
+	border-color: var(--ktd-danger);
+}
+
+.check input[aria-invalid="true"] {
+	outline: 2px solid var(--ktd-danger);
+	outline-offset: 2px;
+}
+
+.form-submit {
+	margin-top: var(--ktd-space-3);
+}
+
+.form-submit[disabled] {
+	opacity: 0.6;
+	cursor: progress;
+}
+
+.fieldset-plain {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.check-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+	gap: 2px 14px;
+}
+
+/* Длинные подписи: флажок по первой строке */
+.check-grid .check,
+.form-card .field--full > .check {
+	align-items: flex-start;
+	padding-block: 4px;
+}
+
+.check-grid .check input,
+.form-card .field--full > .check input {
+	flex: none;
+	margin-top: 2px;
+}
+
+/* Товар / поставщик, которому адресован запрос */
+.rfq-target {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+	margin-bottom: var(--ktd-space-3);
+	padding: 12px;
+	border: 1px solid var(--ktd-line);
+	border-radius: var(--ktd-radius);
+	background: var(--ktd-surface);
+}
+
+.rfq-target > div {
+	display: grid;
+	gap: 4px;
+	font-size: var(--ktd-fs-sm);
+}
+
+.rfq-target__img {
+	flex: none;
+	width: 64px;
+	height: 64px;
+	border-radius: var(--ktd-radius-sm);
+	background: var(--ktd-white);
+	object-fit: contain;
+}
+
+/* После отправки */
+.form-done {
+	display: grid;
+	justify-items: center;
+	gap: 12px;
+	max-width: 640px;
+	margin: var(--ktd-space-5) auto;
+	text-align: center;
+}
+
+.form-done h1 {
+	margin: 0;
+}
+
+.form-done p {
+	margin: 0;
+	color: var(--ktd-muted);
+}
+
+.form-done__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 8px;
+}

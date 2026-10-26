@@ -211,6 +211,7 @@
 	font-weight: 700;
 	line-height: 1.4;
 	white-space: nowrap;
+	max-width: 100%;
 }
 
 .badge--success {
@@ -334,7 +335,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 6px;
-	margin: var(--ktd-space-4) 0;
+	margin: 18px 0 22px;
 	padding: 0;
 	color: var(--ktd-muted);
 	font-size: var(--ktd-fs-xs);
@@ -360,6 +361,25 @@
 .breadcrumbs a:hover {
 	color: var(--ktd-color-primary);
 	text-decoration: underline;
+}
+
+/* Телефон: крошки в одну строку с прокруткой, без переноса на 3 строки. */
+@media (max-width: 767px) {
+	.breadcrumbs {
+		flex-wrap: nowrap;
+		margin: 12px 0 16px;
+		overflow-x: auto;
+		white-space: nowrap;
+		scrollbar-width: none;
+	}
+
+	.breadcrumbs::-webkit-scrollbar {
+		display: none;
+	}
+
+	.breadcrumbs li {
+		flex: none;
+	}
 }
 
 /* ---------- Рейтинг и цена ---------- */
@@ -419,22 +439,81 @@
 /* ---------- Карточка товара ---------- */
 .product-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
-	gap: var(--ktd-space-4);
+	/* Телефон: две колонки — каталог просматривается быстрее, чем лентой по одной карточке. */
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
 }
 
-.product-grid--scroll {
-	grid-auto-flow: column;
-	grid-auto-columns: minmax(220px, 1fr);
-	grid-template-columns: none;
-	overflow-x: auto;
-	padding-bottom: 6px;
-	scroll-snap-type: x mandatory;
-	scrollbar-width: thin;
+@media (min-width: 600px) {
+	.product-grid {
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: var(--ktd-space-4);
+	}
 }
 
-.product-grid--scroll > * {
-	scroll-snap-align: start;
+/* Подборки на всю ширину (главная, похожие, товары поставщика): ровные ряды по 4. */
+@media (min-width: 1024px) {
+	.product-grid--row,
+	.product-grid--scroll,
+	.related .product-grid,
+	.upsells .product-grid,
+	.supplier-layout .product-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+/* Телефон и планшет: подборка «Популярные товары» — лента с прокруткой. */
+@media (max-width: 1023px) {
+	.product-grid--scroll {
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(170px, 44%);
+		grid-template-columns: none;
+		overflow-x: auto;
+		padding-bottom: 6px;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: thin;
+	}
+
+	.product-grid--scroll > * {
+		scroll-snap-align: start;
+	}
+}
+
+/* Компактная карточка в две колонки на телефоне. */
+@media (max-width: 599px) {
+	.product-card__media {
+		padding: 8px;
+	}
+
+	.product-card__media img {
+		inset: 8px;
+		width: calc(100% - 16px);
+		height: calc(100% - 16px);
+	}
+
+	.product-card__body {
+		gap: 4px;
+		padding: 2px 10px 10px;
+	}
+
+	.product-card__title {
+		font-size: var(--ktd-fs-xs);
+	}
+
+	.product-card__foot .btn {
+		flex: 1 1 100%;
+		padding-inline: 8px;
+		white-space: normal;
+	}
+
+	.product-card .price__value {
+		font-size: var(--ktd-fs-md);
+	}
+
+	/* Единица уже есть в строке «Мин. заказ: … шт» — в узкой карточке не дублируем её у цены. */
+	.product-card .price__unit {
+		display: none;
+	}
 }
 
 .product-card {
@@ -465,8 +544,11 @@
 }
 
 .product-card__media img {
-	width: 100%;
-	height: 100%;
+	/* Абсолютно внутри блока 4:3: вертикальные фото не растягивают карточку. */
+	position: absolute;
+	inset: 14px;
+	width: calc(100% - 28px);
+	height: calc(100% - 28px);
 	object-fit: contain;
 	transition: transform 400ms var(--ktd-ease);
 }
@@ -650,6 +732,13 @@
 	overflow-x: auto;
 	border-bottom: 1px solid var(--ktd-line);
 	scrollbar-width: none;
+}
+
+/* Телефон: вкладки прокручиваются — затухание у края подсказывает, что есть продолжение. */
+@media (max-width: 599px) {
+	.tabs__list {
+		mask-image: linear-gradient(to right, #000 82%, transparent);
+	}
 }
 
 .tabs__tab {

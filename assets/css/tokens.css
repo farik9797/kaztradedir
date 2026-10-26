@@ -27,9 +27,10 @@
 	/* Состояния */
 	--ktd-success: #12805c;
 	--ktd-success-bg: #e5f5ee;
-	--ktd-warning: #b45d00;
+	--ktd-warning: #a65500;
 	--ktd-warning-bg: #fff3e0;
 	--ktd-danger: #c8312b;
+	--ktd-danger-bg: #fdecec;
 	--ktd-star: #f5a524;
 
 	/* Роли */
