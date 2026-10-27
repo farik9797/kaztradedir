@@ -373,5 +373,17 @@ if (heroSlider) {
 	else slides[0].addEventListener('load', start, { once: true });
 }
 
+/* ---------- Переключатель языка (GTranslate): сразу текущий язык, без пункта «Язык» ---------- */
+// Виджет GTranslate (defer) строит <select> до DOMContentLoaded.
+// Шапка и мобильное меню — один выбор на двоих.
+document.addEventListener('DOMContentLoaded', () => {
+	const selects = $$('.ktd-gt .gt_selector');
+	selects.forEach((select) => {
+		select.querySelector('option[value=""]')?.remove();
+		if (!select.value) select.value = 'ru|ru';
+		select.addEventListener('change', () => selects.forEach((other) => (other.value = select.value)));
+	});
+});
+
 renderCounters();
 $$('[data-fav-total]').forEach((el) => (el.textContent = favs.size));
