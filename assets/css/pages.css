@@ -22,10 +22,22 @@
 }
 
 .hero__media img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: 70% 50%;
+}
+
+/* Слайдер фона: меняются только фото (плавная смена), текст на месте. */
+.hero__slide {
+	opacity: 0;
+	transition: opacity 1.2s var(--ktd-ease);
+}
+
+.hero__slide.is-active {
+	opacity: 1;
 }
 
 /* Наклонная панель — грань знака логотипа */

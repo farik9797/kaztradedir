@@ -8,6 +8,9 @@
 |---|---|---|
 | `hero-machine.webp` | 34718922 | https://www.pexels.com/photo/34718922/ |
 | `cat-hero-industry.webp` | 29988963 | https://www.pexels.com/photo/29988963/ |
+| `hero-warehouse.webp` | 4483610 | https://www.pexels.com/photo/4483610/ (2400 px, добавлено 27.10.2026 — слайдер hero) |
+| `hero-metal.webp` | 33791802 | https://www.pexels.com/photo/33791802/ (2400 px, 27.10.2026) |
+| `hero-cranes.webp` | 5504388 | https://www.pexels.com/photo/5504388/ (2400 px, 27.10.2026) |
 | `cat-promyshlennost.webp` | 14804699 | https://www.pexels.com/photo/14804699/ |
 | `cat-elektronika.webp` | 36169774 | https://www.pexels.com/photo/36169774/ |
 | `cat-stroitelstvo.webp` | 5504388 | https://www.pexels.com/photo/5504388/ |

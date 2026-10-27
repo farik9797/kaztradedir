@@ -134,7 +134,41 @@ $$('.fav-btn').forEach((btn) => {
 		on ? favs.add(id) : favs.delete(id);
 		storage.set('ktd-favs', [...favs]);
 		$$(`.fav-btn[data-product="${id}"]`).forEach((b) => b.setAttribute('aria-pressed', String(on)));
-		renderCounters();
+		/* ---------- Hero: смена фона ---------- */
+const heroSlider = $('[data-hero-slider]');
+if (heroSlider) {
+	const slides = $$('.hero__slide', heroSlider);
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+	let current = 0;
+	let timer = 0;
+
+	const show = (i) => {
+		const next = slides[i];
+		// Ленивое фото ещё не скачано — ждём, чтобы не мигнуть пустым фоном.
+		if (!next.complete) {
+			next.loading = 'eager';
+			next.addEventListener('load', () => show(i), { once: true });
+			return;
+		}
+		slides[current].classList.remove('is-active');
+		next.classList.add('is-active');
+		current = i;
+	};
+	// Без автосмены при «уменьшить движение» и на скрытой вкладке.
+	const start = () => {
+		clearInterval(timer);
+		timer = 0;
+		if (!reduce.matches && !document.hidden) timer = setInterval(() => show((current + 1) % slides.length), 6000);
+	};
+
+	reduce.addEventListener('change', start);
+	document.addEventListener('visibilitychange', start);
+	// Отсчёт — после загрузки первого фото, чтобы оно успело побыть на экране.
+	if (slides[0].complete) start();
+	else slides[0].addEventListener('load', start, { once: true });
+}
+
+renderCounters();
 		toast(on ? 'Добавлено в избранное' : 'Удалено из избранного');
 	});
 });
