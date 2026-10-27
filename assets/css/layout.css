@@ -162,7 +162,7 @@
 
 .main-menu {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	gap: 2px;
 	margin-left: 12px;
 }
@@ -178,6 +178,7 @@
 	font-size: var(--ktd-fs-sm);
 	font-weight: 600;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 .main-menu a:hover,
@@ -188,6 +189,81 @@
 
 .header-nav__rfq {
 	margin-left: auto;
+}
+
+/* Переключатель языка (GTranslate: <select class="gt_selector"> внутри .ktd-gt) */
+.lang-switch {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	color: var(--ktd-blue-900);
+}
+
+.header-nav .lang-switch {
+	margin-left: auto;
+}
+
+.lang-switch + .header-nav__rfq {
+	margin-left: 4px;
+}
+
+/* В переводе пункты меню длиннее — «Разместить запрос» (дублирует «Запрос цены») прячем. */
+.translated-ltr .header-nav__rfq {
+	display: none;
+}
+
+.lang-switch > .icon {
+	position: absolute;
+	left: 10px;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.lang-switch .gt_selector {
+	appearance: none;
+	min-height: 40px;
+	margin: 0;
+	padding: 8px 30px 8px 34px;
+	border: 1px solid transparent;
+	border-radius: var(--ktd-radius-sm);
+	background: transparent linear-gradient(45deg, transparent 50%, currentcolor 50%) calc(100% - 16px) 52% / 5px 5px no-repeat, transparent linear-gradient(135deg, currentcolor 50%, transparent 50%) calc(100% - 11px) 52% / 5px 5px no-repeat;
+	color: inherit;
+	font-family: var(--ktd-font-display);
+	font-size: var(--ktd-fs-sm);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.lang-switch .gt_selector:hover {
+	background-color: var(--ktd-blue-50);
+}
+
+.lang-switch .gt_selector:focus-visible {
+	border-color: var(--ktd-color-primary);
+	outline: none;
+}
+
+.mobile-nav__lang {
+	margin-bottom: var(--ktd-space-4);
+}
+
+.mobile-nav__lang .gt_selector {
+	border-color: var(--ktd-line);
+}
+
+/* Google Translate: без верхней панели и подсветки; страница не сдвигается. */
+body {
+	top: 0 !important;
+}
+
+body > .skiptranslate,
+#goog-gt-tt {
+	display: none !important;
+}
+
+.goog-text-highlight {
+	background: none !important;
+	box-shadow: none !important;
 }
 
 /* 1024–1279 px: меню в одну строку. «Разместить запрос» дублирует пункт «Запрос цены» — прячем. */
