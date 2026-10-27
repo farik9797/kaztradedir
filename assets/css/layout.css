@@ -207,9 +207,18 @@
 	margin-left: 4px;
 }
 
-/* В переводе пункты меню длиннее — «Разместить запрос» (дублирует «Запрос цены») прячем. */
-.translated-ltr .header-nav__rfq {
-	display: none;
+/* В переводе (GTranslate) пункты меню длиннее — шапка компактнее, «Разместить запрос» в одну строку. */
+.header-nav__rfq {
+	flex-shrink: 0;
+	white-space: nowrap;
+}
+
+.translated-ltr:not([lang|="ru"]) .catalog-toggle {
+	min-width: 0;
+}
+
+.translated-ltr:not([lang|="ru"]) .main-menu a {
+	padding-inline: 9px;
 }
 
 .lang-switch > .icon {
